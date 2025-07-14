@@ -92,7 +92,7 @@ class BossSpiderFastCompany:
     async def run(self):
         async with async_playwright() as p:
             browser = await p.chromium.launch(
-                headless=False,
+                headless=T,
                 channel="chrome",
                 args=[
                     "--disable-blink-features=AutomationControlled",
@@ -108,6 +108,13 @@ class BossSpiderFastCompany:
                 print("❌ 登录失败，请手动扫码")
                 await browser.close()
                 return
+
+            existing = set()
+            if os.path.exists(self.output_file):
+                with open(self.output_file, newline="", encoding="utf-8-sig") as ff:
+                    reader = csv.DictReader(ff)
+                    for row in reader:
+                        existing.add((row['关键词'], row['职位'], row['公司']))
 
             keywords = ["托育", "家政", "养老", "康复", "育婴", "母婴", "护理员", "护理专业", "养老护理", "殡葬", "临终关怀", "婚宴策划", "家宴管家", "宴会主持",
                         "智慧养老", "智能养老", "智能护理", "健康管理", "健康照护", "养老顾问", "社区养老", "居家养老", "养老运营", "养老院院长",
@@ -142,15 +149,21 @@ class BossSpiderFastCompany:
 
                         company_size, hiring_count = await self.get_company_info(context, company)
 
-                        writer.writerow([
-                            keyword, job_name, salary, city, company,
-                            experience, degree, company_size, hiring_count
-                        ])
-                        f.flush()
-                        total += 1
-                        all_count += 1
+                        key = (keyword, job_name, company)
+                        if key not in existing:
+                            writer.writerow([
+                                keyword, job_name, salary, city, company,
+                                experience, degree, company_size, hiring_count
+                            ])
+                            f.flush()
+                            existing.add(key)
+                            total += 1
+                            all_count += 1
+                            print(f"✅ {keyword} 第{page_num}页 | 本页{len(jobs)} | 累计{total} | 总{all_count}")
 
-                        print(f"✅ {keyword} 第{page_num}页 | 本页{len(jobs)} | 累计{total} | 总{all_count}")
+                            if all_count % self.batch_pause == 0:
+                                print(f"⏳ 达到{self.batch_pause}条，自动休息{self.batch_sleep}秒")
+                                await asyncio.sleep(self.batch_sleep)
 
                         if all_count % self.batch_pause == 0:
                             print(f"⏳ 达到{self.batch_pause}条，自动休息{self.batch_sleep}秒")

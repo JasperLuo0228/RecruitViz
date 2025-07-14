@@ -14,7 +14,7 @@ class BossSpiderScroll:
         self.max_retries = 3
         self.keyword_delay = (6, 12)
         self.batch_pause = 80
-        self.max_scroll = 10  # 最多滑动几次（每次可加载一屏）
+        self.max_scroll = 10  # 最多滑动几次
 
     async def save_cookies(self, context):
         cookies = await context.cookies()
@@ -51,7 +51,7 @@ class BossSpiderScroll:
     async def run(self):
         async with async_playwright() as p:
             browser = await p.chromium.launch(
-                headless=False,
+                headless=True,
                 channel="chrome",
                 args=[
                     "--disable-blink-features=AutomationControlled",
@@ -68,7 +68,13 @@ class BossSpiderScroll:
                 await browser.close()
                 return
 
-            keywords = ["托育", "家政", "养老"]  # 示例
+            keywords = ["托育", "家政", "养老", "康复", "育婴", "母婴", "护理员", "护理专业", "养老护理", "殡葬", "临终关怀", "婚宴策划", "家宴管家", "宴会主持",
+                        "智慧养老", "智能养老", "智能护理", "健康管理", "健康照护", "养老顾问", "社区养老", "居家养老", "养老运营", "养老院院长",
+                        "老年人服务", "老年健康", "康养", "医疗护理", "护理学", "医养结合", "临床护理", "专科护士", "护士长", "医疗服务",
+                        "管家", "家政经理", "保姆", "月嫂", "育儿嫂", "家政督导", "家政项目经理", "居家照护", "生活助理",
+                        "托班老师", "托育老师", "早教老师", "亲子园", "幼教", "幼托", "早教中心", "儿童照护", "幼儿园保育员", "婴幼儿发展", "婴幼儿早教",
+                        "照护", "照护师", "健康照护师", "护理助理", "老人陪护", "护工", "院长助理", "社区照护", "养老培训", "失能老人照护",
+                        "康复治疗师", "康复师", "养生顾问", "中医护理", "老年产业"]  # 示例
 
             file_exists = os.path.exists(self.output_file)
             f = open(self.output_file, "a", newline="", encoding="utf-8-sig")
