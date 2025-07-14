@@ -92,7 +92,7 @@ class BossSpiderFastCompany:
     async def run(self):
         async with async_playwright() as p:
             browser = await p.chromium.launch(
-                headless=T,
+                headless=True,
                 channel="chrome",
                 args=[
                     "--disable-blink-features=AutomationControlled",
