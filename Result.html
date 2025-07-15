@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang='zh'>
+<head>
+        <meta charset="utf-8">
+        <title>岗位需求与技能词云大盘</title>
+        <style>
+            body { font-family: '微软雅黑', Arial, sans-serif; padding: 32px; }
+            h2 { margin-top: 48px; border-left: 5px solid #409EFF; padding-left: 12px;}
+            .img-row { display: flex; gap: 32px; margin-bottom: 24px;}
+            .img-box { text-align:center;}
+            img { max-width: 380px; border:1px solid #eee; box-shadow:1px 1px 6px #eee; margin-bottom:8px;}
+        </style>
+    
+<style>
+    body {font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif; background: #f4f6fa; margin: 0; padding: 40px;}
+    h2 {font-weight:bold; font-size:2.2rem; color:#202942; letter-spacing:2px; margin-bottom:10px;}
+    p {font-size:1rem; color:#757575; margin-bottom:36px;}
+    .card-container {display: flex; flex-wrap: wrap; gap: 32px;}
+    .card {background: #fff; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 28px 24px; width: 340px; transition: box-shadow 0.2s;}
+    .card:hover {box-shadow: 0 6px 16px rgba(70,130,255,0.12);}
+    .card-title {font-size: 22px; font-weight: 700; color: #2d3a4b; margin-bottom: 16px; letter-spacing: 2px;}
+    .card-section {margin-bottom: 10px;}
+    .card-section strong {color: #6699ff; margin-right: 6px;}
+    .tags {display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;}
+    .tag {background: #eef4ff; color: #3366cc; border-radius: 8px; padding: 2px 10px; font-size: 13px; margin-bottom: 4px; display: inline-block;}
+  </style>
+<style>
+    body { font-family: 'SimHei','PingFang SC','Microsoft YaHei',Arial,sans-serif; background:#f7f8fa; padding:30px; }
+    .charts-flex { display: flex; flex-wrap: wrap; gap: 28px 4%; }
+    .chart-block {
+        background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.09);
+        padding:22px 18px; margin-bottom:32px; width: 48%; box-sizing: border-box;
+        display: flex; flex-direction: column; align-items: center;
+    }
+    .chart-title { font-size:20px; color:#324fa6; margin-bottom:14px; font-weight:bold; text-align: center;}
+    .chart-img { max-width: 96%; display:block; margin-bottom:8px; border-radius:8px; box-shadow:0 1px 8px rgba(80,120,200,0.10);}
+    .chart-desc { color:#888; font-size:14px; margin-bottom:4px; text-align:center;}
+    @media (max-width: 900px) {
+      .chart-block { width: 100%; }
+      .charts-flex { gap: 24px 0; }
+    }
+  </style>
+<style>
+    body { font-family: 'SimHei','PingFang SC','Microsoft YaHei',Arial,sans-serif; background:#f7f8fa; padding:30px;}
+    .title-block { margin-bottom: 38px; margin-top: 18px; display: flex; flex-direction: column; align-items: flex-start; }
+    .title-row {
+      display: flex; align-items: center;
+      font-size: 48px; font-weight: 800; color: #232b3b;
+      letter-spacing: 2px;
+    }
+    .blue-bar {
+      display: inline-block; width: 8px; height: 54px; background: #6196fa;
+      border-radius: 3px; margin-right: 16px;
+    }
+    .subtitle {
+      color: #888; font-size: 22px; margin-top: 12px; margin-left: 8px;
+      font-weight: 400;
+    }
+    .charts-flex { display: flex; flex-wrap: wrap; gap: 28px 4%; }
+    .chart-block {
+        background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.09);
+        padding:22px 18px; margin-bottom:32px; width: 48%; box-sizing: border-box;
+        display: flex; flex-direction: column; align-items: center;
+    }
+    .chart-title { font-size:20px; color:#324fa6; margin-bottom:14px; font-weight:bold; text-align: center;}
+    .chart-img { max-width: 96%; display:block; margin-bottom:8px; border-radius:8px; box-shadow:0 1px 8px rgba(80,120,200,0.10);}
+    .chart-desc { color:#888; font-size:14px; margin-bottom:4px; text-align:center;}
+    @media (max-width: 900px) {
+      .chart-block { width: 100%; }
+      .charts-flex { gap: 24px 0; }
+    }
+  </style></head>
+<body>
+<h1>岗位需求与技能词云可视化 Dashboard</h1>
+
+        <h2>各专业薪资水平对比</h2>
+        <div>
+            <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+
+    
+</head>
+<body >
+    <div id="d6958f501ebd411280dfd94bdd29e23c" class="chart-container" style="width:900px; height:500px; "></div>
+    <script>
+        var chart_d6958f501ebd411280dfd94bdd29e23c = echarts.init(
+            document.getElementById('d6958f501ebd411280dfd94bdd29e23c'), 'white', {renderer: 'canvas'});
+        var option_d6958f501ebd411280dfd94bdd29e23c = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "color": [
+        "#5470c6",
+        "#91cc75",
+        "#fac858",
+        "#ee6666",
+        "#73c0de",
+        "#3ba272",
+        "#fc8452",
+        "#9a60b4",
+        "#ea7ccc"
+    ],
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u5e73\u5747\u85aa\u8d44",
+            "legendHoverLink": true,
+            "data": [
+                12170.5,
+                12437.5,
+                11937.5,
+                6642.9
+            ],
+            "realtimeSort": false,
+            "showBackground": false,
+            "stackStrategy": "samesign",
+            "cursor": "pointer",
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "margin": 8,
+                "valueAnimation": false
+            }
+        },
+        {
+            "type": "bar",
+            "name": "\u85aa\u8d44\u4e2d\u4f4d\u6570",
+            "legendHoverLink": true,
+            "data": [
+                11000.0,
+                9250.0,
+                10750.0,
+                6500.0
+            ],
+            "realtimeSort": false,
+            "showBackground": false,
+            "stackStrategy": "samesign",
+            "cursor": "pointer",
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "margin": 8,
+                "valueAnimation": false
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u5e73\u5747\u85aa\u8d44",
+                "\u85aa\u8d44\u4e2d\u4f4d\u6570"
+            ],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "xAxis": [
+        {
+            "name": "\u4e13\u4e1a",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "axisLabel": {
+                "show": true,
+                "rotate": 45,
+                "margin": 8,
+                "valueAnimation": false
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0,
+            "data": [
+                "\u62a4\u7406\u4e13\u4e1a",
+                "\u667a\u6167\u5065\u5eb7\u517b\u8001\u670d\u52a1\u4e0e\u7ba1\u7406\u4e13\u4e1a",
+                "\u73b0\u4ee3\u5bb6\u653f\u670d\u52a1\u4e0e\u7ba1\u7406\u4e13\u4e1a",
+                "\u5a74\u5e7c\u513f\u6258\u80b2\u670d\u52a1\u4e0e\u7ba1\u7406\u4e13\u4e1a"
+            ]
+        }
+    ],
+    "yAxis": [
+        {
+            "name": "\u85aa\u8d44(\u5143)",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0
+        }
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u5404\u4e13\u4e1a\u85aa\u8d44\u6c34\u5e73\u5bf9\u6bd4",
+            "target": "blank",
+            "subtarget": "blank",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ],
+    "toolbox": {
+        "show": true,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "80%",
+        "feature": {
+            "saveAsImage": {
+                "type": "png",
+                "backgroundColor": "auto",
+                "connectedBackgroundColor": "#fff",
+                "show": true,
+                "title": "\u4fdd\u5b58\u4e3a\u56fe\u7247",
+                "pixelRatio": 1
+            },
+            "restore": {
+                "show": true,
+                "title": "\u8fd8\u539f"
+            },
+            "dataView": {
+                "show": true,
+                "title": "\u6570\u636e\u89c6\u56fe",
+                "readOnly": false,
+                "lang": [
+                    "\u6570\u636e\u89c6\u56fe",
+                    "\u5173\u95ed",
+                    "\u5237\u65b0"
+                ],
+                "backgroundColor": "#fff",
+                "textareaColor": "#fff",
+                "textareaBorderColor": "#333",
+                "textColor": "#000",
+                "buttonColor": "#c23531",
+                "buttonTextColor": "#fff"
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {
+                    "zoom": "\u533a\u57df\u7f29\u653e",
+                    "back": "\u533a\u57df\u7f29\u653e\u8fd8\u539f"
+                },
+                "icon": {},
+                "filterMode": "filter"
+            },
+            "magicType": {
+                "show": true,
+                "type": [
+                    "line",
+                    "bar",
+                    "stack",
+                    "tiled"
+                ],
+                "title": {
+                    "line": "\u5207\u6362\u4e3a\u6298\u7ebf\u56fe",
+                    "bar": "\u5207\u6362\u4e3a\u67f1\u72b6\u56fe",
+                    "stack": "\u5207\u6362\u4e3a\u5806\u53e0",
+                    "tiled": "\u5207\u6362\u4e3a\u5e73\u94fa"
+                },
+                "icon": {}
+            }
+        }
+    }
+};
+        chart_d6958f501ebd411280dfd94bdd29e23c.setOption(option_d6958f501ebd411280dfd94bdd29e23c);
+    </script>
+</body>
+</html>
+
+        </div>
+
+        
+        <h2>护理专业</h2>
+        <div class="img-row">
+            <div class="img-box">
+                <strong>词云图</strong><br>
+                <img src="wordclouds\护理专业_词云.png" alt="护理专业词云">
+            </div>
+            <div class="img-box">
+                <strong>共现网络</strong><br>
+                <img src="co_networks\护理专业_共现网络.png" alt="护理专业共现网络">
+            </div>
+        </div>
+        
+        <h2>智慧健康养老服务与管理专业</h2>
+        <div class="img-row">
+            <div class="img-box">
+                <strong>词云图</strong><br>
+                <img src="wordclouds\智慧健康养老服务与管理专业_词云.png" alt="智慧健康养老服务与管理专业词云">
+            </div>
+            <div class="img-box">
+                <strong>共现网络</strong><br>
+                <img src="co_networks\智慧健康养老服务与管理专业_共现网络.png" alt="智慧健康养老服务与管理专业共现网络">
+            </div>
+        </div>
+        
+        <h2>现代家政服务与管理专业</h2>
+        <div class="img-row">
+            <div class="img-box">
+                <strong>词云图</strong><br>
+                <img src="wordclouds\现代家政服务与管理专业_词云.png" alt="现代家政服务与管理专业词云">
+            </div>
+            <div class="img-box">
+                <strong>共现网络</strong><br>
+                <img src="co_networks\现代家政服务与管理专业_共现网络.png" alt="现代家政服务与管理专业共现网络">
+            </div>
+        </div>
+        
+        <h2>婴幼儿托育服务与管理专业</h2>
+        <div class="img-row">
+            <div class="img-box">
+                <strong>词云图</strong><br>
+                <img src="wordclouds\婴幼儿托育服务与管理专业_词云.png" alt="婴幼儿托育服务与管理专业词云">
+            </div>
+            <div class="img-box">
+                <strong>共现网络</strong><br>
+                <img src="co_networks\婴幼儿托育服务与管理专业_共现网络.png" alt="婴幼儿托育服务与管理专业共现网络">
+            </div>
+        </div>
+<div class="title-block">
+    <div class="title-row">
+      <span class="blue-bar"></span>
+      各专业岗位数据卡片展示
+    </div>
+    <div class="subtitle">典型岗位、高频词及短语分析一览</div>
+  </div>
+  <div class="charts-flex">
+
+        <div class="chart-block">
+            <div class="chart-title">各专业岗位数量分布</div>
+            <div class="chart-desc">不同专业对应的岗位需求数量统计。</div>
+            <img class="chart-img" src="岗位数量统计.png" alt="各专业岗位数量分布">
+        </div>
+        
+        <div class="chart-block">
+            <div class="chart-title">各专业平均薪资分布</div>
+            <div class="chart-desc">不同专业的平均薪资水平分布情况。</div>
+            <img class="chart-img" src="各专业平均薪资.png" alt="各专业平均薪资分布">
+        </div>
+        
+        <div class="chart-block">
+            <div class="chart-title">各专业岗位数量与平均薪资对比图</div>
+            <div class="chart-desc">将岗位数量（柱状）与平均薪资（折线）在同一图上直观对比。</div>
+            <img class="chart-img" src="岗位数量与薪资双轴图.png" alt="各专业岗位数量与平均薪资对比图">
+        </div>
+        
+  </div>
+<h2>各专业岗位数据卡片展示</h2>
+  <p>典型岗位、高频词及短语分析一览</p>
+  <div class="card-container">
+
+    <div class="card">
+      <div class="card-title">护理专业</div>
+      <div class="card-section"><strong>典型职位：</strong>康复师,老年护理员</div>
+      <div class="card-section"><strong>高频词：</strong><div class="tags"><span class="tag">工作(40)</span><span class="tag">护理(38)</span><span class="tag">客户(37)</span><span class="tag">运动(23)</span><span class="tag">要求(21)</span><span class="tag">治疗(20)</span><span class="tag">服务(19)</span><span class="tag">负责(19)</span><span class="tag">健康(19)</span><span class="tag">专业(18)</span><span class="tag">良好(17)</span><span class="tag">经验(17)</span><span class="tag">能力(15)</span><span class="tag">提供(14)</span><span class="tag">团队(14)</span></div></div>
+      <div class="card-section"><strong>高频短语：</strong><div class="tags"><span class="tag">岗位职责(9)</span><span class="tag">任职要求(9)</span><span class="tag">年龄(8)</span><span class="tag">学历(5)</span><span class="tag">具备良好的(5)</span><span class="tag">身体健康(4)</span><span class="tag">工作内容(4)</span><span class="tag">服务(4)</span><span class="tag">无不良嗜好(3)</span><span class="tag">危重病观察(3)</span><span class="tag">异常情况及(3)</span><span class="tag">具有良好的(3)</span><span class="tag">能力(3)</span><span class="tag">工作(3)</span><span class="tag">任职资格(3)</span></div></div>
+      <div class="card-section"><strong>高频二元组：</strong><div class="tags"><span class="tag">运动康复(12)</span><span class="tag">康复治疗(10)</span><span class="tag">任职要求(9)</span><span class="tag">沟通能力(8)</span><span class="tag">良好沟通(8)</span><span class="tag">产后康复(7)</span><span class="tag">工作内容(6)</span><span class="tag">具备良好(6)</span><span class="tag">提供专业(6)</span><span class="tag">团队合作(6)</span></div></div>
+    </div>
+    
+
+    <div class="card">
+      <div class="card-title">智慧健康养老服务与管理专业</div>
+      <div class="card-section"><strong>典型职位：</strong>无</div>
+      <div class="card-section"><strong>高频词：</strong><div class="tags"><span class="tag">护理(38)</span><span class="tag">工作(35)</span><span class="tag">老年人(22)</span><span class="tag">提供(18)</span><span class="tag">疾病(17)</span><span class="tag">老人(17)</span><span class="tag">公司(17)</span><span class="tag">观察(16)</span><span class="tag">负责(16)</span><span class="tag">服务(16)</span><span class="tag">管理(14)</span><span class="tag">经验(14)</span><span class="tag">团队(14)</span><span class="tag">生活(13)</span><span class="tag">照料(13)</span></div></div>
+      <div class="card-section"><strong>高频短语：</strong><div class="tags"><span class="tag">危重病观察(9)</span><span class="tag">岗位职责(8)</span><span class="tag">任职要求(8)</span><span class="tag">骨关节疾病(6)</span><span class="tag">阿尔斯海默(6)</span><span class="tag">学历(6)</span><span class="tag">身体清洁(5)</span><span class="tag">有耐心(5)</span><span class="tag">身体健康(5)</span><span class="tag">年龄(5)</span><span class="tag">工作(4)</span><span class="tag">季度奖(4)</span><span class="tag">工作时间(4)</span><span class="tag">脱衣物照料(3)</span><span class="tag">居家环境整(3)</span></div></div>
+      <div class="card-section"><strong>高频二元组：</strong><div class="tags"><span class="tag">危重病观察(9)</span><span class="tag">观察护理(9)</span><span class="tag">任职要求(9)</span><span class="tag">高端养老(8)</span><span class="tag">工作时间(7)</span><span class="tag">生活照料(6)</span><span class="tag">常见疾病护理(6)</span><span class="tag">护理肿瘤(6)</span><span class="tag">肿瘤疾病(6)</span><span class="tag">骨关节疾病(6)</span></div></div>
+    </div>
+    
+
+    <div class="card">
+      <div class="card-title">现代家政服务与管理专业</div>
+      <div class="card-section"><strong>典型职位：</strong>无</div>
+      <div class="card-section"><strong>高频词：</strong><div class="tags"><span class="tag">婚礼(26)</span><span class="tag">能力(15)</span><span class="tag">工作(14)</span><span class="tag">负责(13)</span><span class="tag">策划(11)</span><span class="tag">具备(10)</span><span class="tag">能够(10)</span><span class="tag">活动(9)</span><span class="tag">具有(9)</span><span class="tag">销售(9)</span><span class="tag">客户(8)</span><span class="tag">相关(8)</span><span class="tag">沟通(8)</span><span class="tag">岗位职责(7)</span><span class="tag">内容(7)</span></div></div>
+      <div class="card-section"><strong>高频短语：</strong><div class="tags"><span class="tag">岗位职责(7)</span><span class="tag">任职要求(5)</span><span class="tag">具备良好的(4)</span><span class="tag">表达能力(3)</span><span class="tag">性格开朗(2)</span><span class="tag">提供专业的(2)</span><span class="tag">作精神(2)</span><span class="tag">协作(2)</span><span class="tag">普通话标准(2)</span><span class="tag">具有较强的(2)</span><span class="tag">沟通能力及(2)</span><span class="tag">负责组织老(1)</span><span class="tag">人开展社工(1)</span><span class="tag">各项活动(1)</span><span class="tag">丰富他们的(1)</span></div></div>
+      <div class="card-section"><strong>高频二元组：</strong><div class="tags"><span class="tag">任职要求(5)</span><span class="tag">岗位职责负责(4)</span><span class="tag">家政服务(4)</span><span class="tag">具备良好(4)</span><span class="tag">沟通能力(4)</span><span class="tag">能力能够(4)</span><span class="tag">婚礼策划(4)</span><span class="tag">婚礼行业(4)</span><span class="tag">日常活动(3)</span><span class="tag">良好沟通(3)</span></div></div>
+    </div>
+    
+
+    <div class="card">
+      <div class="card-title">婴幼儿托育服务与管理专业</div>
+      <div class="card-section"><strong>典型职位：</strong>无</div>
+      <div class="card-section"><strong>高频词：</strong><div class="tags"><span class="tag">工作(26)</span><span class="tag">幼儿(16)</span><span class="tag">家长(16)</span><span class="tag">负责(12)</span><span class="tag">教师(10)</span><span class="tag">老师(10)</span><span class="tag">教育(10)</span><span class="tag">管理(9)</span><span class="tag">活动(9)</span><span class="tag">班级(8)</span><span class="tag">做好(7)</span><span class="tag">教学(7)</span><span class="tag">本班(6)</span><span class="tag">提高(6)</span><span class="tag">配班(6)</span></div></div>
+      <div class="card-section"><strong>高频短语：</strong><div class="tags"><span class="tag">与家长保持(3)</span><span class="tag">岗位职责(3)</span><span class="tag">育婴师(2)</span><span class="tag">保育员(2)</span><span class="tag">任职要求(2)</span><span class="tag">托育园长工(2)</span><span class="tag">教学(2)</span><span class="tag">托育园(2)</span><span class="tag">日托(2)</span><span class="tag">与本班教师(2)</span><span class="tag">主班教师(1)</span><span class="tag">贯彻执行(1)</span><span class="tag">幼儿工作规(1)</span><span class="tag">对本班幼儿(1)</span><span class="tag">的安全(1)</span></div></div>
+      <div class="card-section"><strong>高频二元组：</strong><div class="tags"><span class="tag">不断提高(4)</span><span class="tag">工作家长(3)</span><span class="tag">配班老师(3)</span><span class="tag">托育中心(3)</span><span class="tag">经营管理(3)</span><span class="tag">教研活动(3)</span><span class="tag">工作规程(2)</span><span class="tag">本班幼儿(2)</span><span class="tag">幼儿安全(2)</span><span class="tag">做好家长(2)</span></div></div>
+    </div>
+    
+  </div>
+<div style="margin-bottom:38px; margin-top:18px;">
+  <div style="display:flex; align-items:center;">
+    <div style="width:9px; height:54px; background:#6aa6ff; border-radius:3px; margin-right:18px;"></div>
+    <span style="font-size:52px; font-weight:800; color:#2d3143; letter-spacing:2px;">公司规模与岗位需求分析</span>
+  </div>
+  <div style="font-size:30px; color:#7b7b7b; margin-left:27px; margin-top:13px; font-weight:400;">
+    公司规模、岗位数量、平均薪资等数据一览
+  </div>
+</div>
+
+  <div class="charts-flex">
+
+        <div class="chart-block">
+            <div class="chart-title">公司规模分布</div>
+            <div class="chart-desc">不同规模的公司在岗位市场中的占比。</div>
+            <img class="chart-img" src="公司规模分布.png" alt="公司规模分布">
+        </div>
+        
+        <div class="chart-block">
+            <div class="chart-title">各公司规模岗位需求数量</div>
+            <div class="chart-desc">各类公司规模所对应的岗位需求数量分布。</div>
+            <img class="chart-img" src="公司规模-岗位需求柱状图.png" alt="各公司规模岗位需求数量">
+        </div>
+        
+        <div class="chart-block">
+            <div class="chart-title">不同公司规模岗位平均薪资</div>
+            <div class="chart-desc">公司规模不同，发布岗位的平均薪资水平对比。</div>
+            <img class="chart-img" src="公司规模-平均薪资.png" alt="不同公司规模岗位平均薪资">
+        </div>
+        
+        <div class="chart-block">
+            <div class="chart-title">各公司规模在招职位总人数</div>
+            <div class="chart-desc">各规模公司正在招聘的岗位总人数统计。</div>
+            <img class="chart-img" src="公司规模-在招人数.png" alt="各公司规模在招职位总人数">
+        </div>
+        
+  </div>
+</body>
+</html>
